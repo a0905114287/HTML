@@ -2,7 +2,6 @@
 //install web server package: express >npm install express
 var express = require("express");
 var server = express();
-var bodyParser = require("body-parser");
 var path = require("path");
 
 //web root
