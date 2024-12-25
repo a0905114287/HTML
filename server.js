@@ -19,14 +19,11 @@ var ContactDB = DB.create(__dirname+"/contact.db");
  
 server.use(bodyParser.json());
 server.use(bodyParser.urlencoded({ extended: true }));
-// ProfolioDB.insert([
-//     { modal: "#portfolioModal1", imgSrc: "modalroundicons.png", heading: "Round Icons", text: "Graphic Design" },
-//     { modal: "#portfolioModal2", imgSrc: "startup-framework.png", heading: "Startup Framework", text: "Website Design" },
-//     { modal: "#portfolioModal3", imgSrc: "treehouse.png", heading: "Treehouse", text: "Website Design" },
-//     { modal: "#portfolioModal1", imgSrc: "roundicons.png", heading: "Round Icons", text: "Graphic Design" },
-//     { modal: "#portfolioModal2", imgSrc: "startup-framework.png", heading: "Startup Framework", text: "Website Design" },
-//     { modal: "#portfolioModal3", imgSrc: "treehouse.png", heading: "Treehouse", text: "Website Design" }
-// ])
+/* ProfolioDB.insert([
+    {"modal":"part1","imgSrc":"picture/s1411122027材質.png","link":"3D_design.html","title":"3D design","text":"See More","_id":"KavTsbjYNXZKg8nO"},
+    {"modal":"part1","imgSrc":"picture/達悟族.png","link":"graphic_design.html","title":"graphic design","text":"See More","_id":"UUbAwGb5VRNdRMHv"},
+    {"modal":"part1","imgSrc":"picture/S__9060369.png","link":"Something_else_here.html","title":"Something_else_here","text":"See More","_id":"y5sULH04KHANhkDd"}
+])*/
 
 server.get("/services", (req, res)=>{
     //DB find
