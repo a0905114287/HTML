@@ -3,11 +3,11 @@
 var express = require("express");
 var server = express();
 var bodyParser = require("body-parser");
+var path = require("path");
 
 //web root
 server.use(express.static(__dirname));
-server.use(bodyParser.json());
-server.use(bodyParser.urlencoded());
+
 
 var fileUpload = require("express-fileupload");
 server.use(fileUpload({defCharset:'utf8', defParamCharset:'utf8'}));
@@ -17,7 +17,8 @@ var DB = require("nedb-promises");
 var ProfolioDB = DB.create(__dirname+"/profolio.db");
 var ContactDB = DB.create(__dirname+"/contact.db");
  
-
+server.use(bodyParser.json());
+server.use(bodyParser.urlencoded({ extended: true }));
 // ProfolioDB.insert([
 //     { modal: "#portfolioModal1", imgSrc: "modalroundicons.png", heading: "Round Icons", text: "Graphic Design" },
 //     { modal: "#portfolioModal2", imgSrc: "startup-framework.png", heading: "Startup Framework", text: "Website Design" },
@@ -52,6 +53,10 @@ server.post("/contact_me", (req,res)=>{
      res.redirect("/#contact");
 })
 
-server.listen(6969, ()=>{
+server.listen(80, ()=>{
     console.log("Server is running at port 80.");
 })
+
+server.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, '/main.html'));
+  });
