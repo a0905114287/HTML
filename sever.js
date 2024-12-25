@@ -52,6 +52,6 @@ server.post("/contact_me", (req,res)=>{
      res.redirect("/#contact");
 })
 
-server.listen(80, ()=>{
+server.listen(6969, ()=>{
     console.log("Server is running at port 80.");
 })
