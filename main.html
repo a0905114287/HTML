@@ -222,14 +222,14 @@
 
   <div id="part">
     <div class="container my-4">
-      <div class="col" v-for="card in cards" :key="card.title">
+      <div class="col" v-for="part in parts" :key="part.title">
         <div class="card-group">
           <div class="card">
-            <img src="part.imgSrc" alt="Card img" class="card-img-top">
+            <img :src="part.imgSrc" alt="Card img" class="card-img-top">
             <div class="card-body">
-              <h5 class="card-title">{{ card.title }}</h5>
-              <a :href="card.link" class="card-link">
-                <p class="card-title">{{ card.text }}"</p>
+              <h5 class="card-title">{{ part.title }}</h5>
+              <a :href="part.link" class="card-link">
+                <p class="card-text">{{ part.text }}</p>
               </a>
             </div>
           </div>

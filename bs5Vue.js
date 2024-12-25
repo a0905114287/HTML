@@ -12,7 +12,7 @@ var part = Vue.createApp({
             method: "GET",    // HTTP 方法
             dataType: "json", // 資料格式
             success: (results) => {
-                this.cards = results; // 將回傳的資料綁定到 Vue 的 parts
+                this.parts = results; // 將回傳的資料綁定到 Vue 的 parts
             },
             error: (xhr, status, error) => {
                 console.error("Error fetching data:", status, error);
@@ -22,4 +22,4 @@ var part = Vue.createApp({
 });
 
 // 掛載 Vue 應用程式到指定的 DOM 元素
-part.mount("#parts");
+part.mount("#part");
