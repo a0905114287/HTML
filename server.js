@@ -17,8 +17,8 @@ var DB = require("nedb-promises");
 var ProfolioDB = DB.create(__dirname+"/profolio.db");
 var ContactDB = DB.create(__dirname+"/contact.db");
  
-server.use(bodyParser.json());
-server.use(bodyParser.urlencoded({ extended: true }));
+server.use(express.json());
+server.use(express.urlencoded({ extended: true }));
 /* ProfolioDB.insert([
     {"modal":"part1","imgSrc":"picture/s1411122027材質.png","link":"3D_design.html","title":"3D design","text":"See More","_id":"KavTsbjYNXZKg8nO"},
     {"modal":"part1","imgSrc":"picture/達悟族.png","link":"graphic_design.html","title":"graphic design","text":"See More","_id":"UUbAwGb5VRNdRMHv"},
