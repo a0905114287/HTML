@@ -222,8 +222,9 @@
 
   <div id="part">
     <div class="container my-4">
-      <div class="col" v-for="part in parts" :key="part.title">
-        <div class="card-group">
+      <div class="card-group">
+        <div class="col" v-for="part in parts" :key="part.title">
+
           <div class="card">
             <img :src="part.imgSrc" alt="Card img" class="card-img-top">
             <div class="card-body">
