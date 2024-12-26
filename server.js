@@ -25,14 +25,14 @@ const ContactDB = DB.create(__dirname+"/contact.db");
     {modal:"card3",imgSrc:"picture/S__9060369.png",link:"Something_else_here.html",title:"Something_else_here",text:"See More"}
 ])*/
 
-server.get("/services", (req, res)=>{
+/*server.get("/services", (req, res)=>{
     //DB find
     const Services=[
         {icon: "fa-shopping-cart", heading:"E-Commerce", text:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit."},
         {icon: "fa-laptop", heading:"Responsive Design", text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit."}
     ];
     res.send(Services);
-});
+});*/
 
 server.get("/profolio", (req,res)=>{
       //DB
