@@ -47,7 +47,7 @@ server.get("/profolio", (req,res)=>{
             res.send("Error!");
         }
       })
-});
+})
 
 server.post("/contact_me", (req,res)=>{
      ContactDB.insert(req.body);
