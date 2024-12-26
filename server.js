@@ -18,11 +18,11 @@ var ContactDB = DB.create(__dirname+"/contact.db");
  
 server.use(express.json());
 server.use(express.urlencoded({ extended: true }));
-/* ProfolioDB.insert([
-    {"modal":"part1","imgSrc":"picture/s1411122027材質.png","link":"3D_design.html","title":"3D design","text":"See More","_id":"KavTsbjYNXZKg8nO"},
-    {"modal":"part1","imgSrc":"picture/達悟族.png","link":"graphic_design.html","title":"graphic design","text":"See More","_id":"UUbAwGb5VRNdRMHv"},
-    {"modal":"part1","imgSrc":"picture/S__9060369.png","link":"Something_else_here.html","title":"Something_else_here","text":"See More","_id":"y5sULH04KHANhkDd"}
-])*/
+ ProfolioDB.insert([
+    {modal:"part1",imgSrc:"picture/s1411122027材質.png",link:"3D_design.html",title:"3D design",text:"See More"},
+    {modal:"part2",imgSrc:"picture/達悟族.png",link:"graphic_design.html",title:"graphic design",text:"See More"},
+    {modal:"part3",imgSrc:"picture/S__9060369.png",link:"Something_else_here.html",title:"Something_else_here",text:"See More"}
+])
 
 server.get("/services", (req, res)=>{
     //DB find
