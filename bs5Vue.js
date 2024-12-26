@@ -1,5 +1,5 @@
 
-var part = Vue.createApp({
+const part = Vue.createApp({
     data() {
         return {
             parts: [], // 初始化 parts 為空陣列
