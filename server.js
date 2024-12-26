@@ -2,17 +2,12 @@
 //install web server package: express >npm install express
 const express = require("express");
 const server = express();
-const bodyParser = require("body-parser");
 const path = require("path");
-const helmet = require("helmet");
-const cors = require("cors");
 
 //web root
 server.use(express.static(__dirname));
-server.use(bodyParser.json());
-server.use(bodyParser.urlencoded({ extended: true }));
-server.use(helmet());
-server.use(cors());
+server.use(express.json());
+server.use(express.urlencoded({ extended: true }));
 
 const fileUpload = require("express-fileupload");
 server.use(fileUpload({defCharset:'utf8', defParamCharset:'utf8'}));
