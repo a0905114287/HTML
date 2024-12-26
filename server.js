@@ -1,22 +1,22 @@
 //install: node js
 //install web server package: express >npm install express
-var express = require("express");
-var server = express();
-var bodyParser = require("body-parser");
-var path = require("path");
+const express = require("express");
+const server = express();
+const bodyParser = require("body-parser");
+const path = require("path");
 
 //web root
 server.use(express.static(__dirname));
 server.use(bodyParser.json());
 server.use(bodyParser.urlencoded({ extended: true }));
 
-var fileUpload = require("express-fileupload");
+const fileUpload = require("express-fileupload");
 server.use(fileUpload({defCharset:'utf8', defParamCharset:'utf8'}));
 
 
-var DB = require("nedb-promises");
-var ProfolioDB = DB.create(__dirname+"/profolio.db");
-var ContactDB = DB.create(__dirname+"/contact.db");
+const DB = require("nedb-promises");
+const ProfolioDB = DB.create(__dirname+"/profolio.db");
+const ContactDB = DB.create(__dirname+"/contact.db");
  
 
   /*ProfolioDB.insert([
@@ -27,7 +27,7 @@ var ContactDB = DB.create(__dirname+"/contact.db");
 
 server.get("/services", (req, res)=>{
     //DB find
-    var Services=[
+    const Services=[
         {icon: "fa-shopping-cart", heading:"E-Commerce", text:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit."},
         {icon: "fa-laptop", heading:"Responsive Design", text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit."}
     ];
