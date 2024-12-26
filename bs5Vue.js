@@ -1,5 +1,5 @@
 
-const part = Vue.createApp({
+const card = Vue.createApp({
     data() {
         return {
             parts: [], // 初始化 parts 為空陣列
@@ -22,4 +22,4 @@ const part = Vue.createApp({
 });
 
 // 掛載 Vue 應用程式到指定的 DOM 元素
-part.mount("#part");
+card.mount("#part");
