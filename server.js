@@ -5,7 +5,7 @@ var server = express();
 var path = require("path");
 
 //web root
-server.use(express.static(__dirname));
+server.use(express.static(path.join(__dirname)));
 
 
 var fileUpload = require("express-fileupload");
@@ -13,8 +13,8 @@ server.use(fileUpload({defCharset:'utf8', defParamCharset:'utf8'}));
 
 
 var DB = require("nedb-promises");
-var ProfolioDB = DB.create(__dirname+"/profolio.db");
-var ContactDB = DB.create(__dirname+"/contact.db");
+var ProfolioDB = DB.create(path.join(__dirname+"/profolio.db"));
+var ContactDB = DB.create(path.join(__dirname+"/contact.db"));
  
 server.use(express.json());
 server.use(express.urlencoded({ extended: true }));
@@ -35,22 +35,32 @@ server.use(express.urlencoded({ extended: true }));
 
 server.get("/profolio", (req,res)=>{
       //DB
-      ProfolioDB.find({}).then(results=>{
-        if(results != null){
-             res.send(results);
-        }else{
-            res.send("Error!");
+      ProfolioDB.find({}).then(results => {
+        if (results.length > 0) {
+            res.send(results);
+        } else {
+            res.status(404).send("No records found!");
         }
-      })
+    })
+    .catch(err => {
+        console.error(err);
+        res.status(500).send("Database error!");
+    });
 })
 
-server.post("/contact_me", (req,res)=>{
-     ContactDB.insert(req.body);
-     res.redirect("/#contact");
-})
+server.post("/contact_me", (req, res) => {
+    ContactDB.insert(req.body)
+      .then(() => {
+          res.redirect("/#contact");
+      })
+      .catch(err => {
+          console.error(err);
+          res.status(500).send("Failed to save contact information!");
+      });
+});
 
 server.listen(2170, ()=>{
-    console.log("Server is running at port 80.");
+    console.log("Server is running at port 2170.");
 })
 
 server.get('/', (req, res) => {
