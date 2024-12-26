@@ -4,11 +4,15 @@ const express = require("express");
 const server = express();
 const bodyParser = require("body-parser");
 const path = require("path");
+const helmet = require("helmet");
+const cors = require("cors");
 
 //web root
 server.use(express.static(__dirname));
 server.use(bodyParser.json());
 server.use(bodyParser.urlencoded({ extended: true }));
+server.use(helmet());
+server.use(cors());
 
 const fileUpload = require("express-fileupload");
 server.use(fileUpload({defCharset:'utf8', defParamCharset:'utf8'}));
@@ -43,16 +47,17 @@ server.get("/profolio", (req,res)=>{
             res.send("Error!");
         }
       })
-})
+});
 
 server.post("/contact_me", (req,res)=>{
      ContactDB.insert(req.body);
      res.redirect("/#contact");
-})
+});
 
-server.listen(2170, ()=>{
-    console.log("Server is running at port 2170.");
-})
 server.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '/main.html'));
   });
+
+server.listen(2170, ()=>{
+    console.log("Server is running at port 2170.");
+});
