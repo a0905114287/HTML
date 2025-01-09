@@ -5,7 +5,7 @@ const server = express();
 const path = require("path");
 
 //web root
-server.use(express.static(__dirname));
+server.use(express.static(__dirname+"/web"));
 server.use(express.json());
 server.use(express.urlencoded({ extended: true }));
 
@@ -18,10 +18,10 @@ const ProfolioDB = DB.create(__dirname+"/profolio.db");
 const ContactDB = DB.create(__dirname+"/contact.db");
  
 
- /*ProfolioDB.insert([
-     {modal:"card1",imgSrc:"picture/s1411122027材質.png",link:"3D_design.html",title:"3D design",text:"See More"},
-     {modal:"card2",imgSrc:"picture/達悟族.png",link:"graphic_design.html",title:"graphic design",text:"See More"},
-     {modal:"card3",imgSrc:"picture/S__9060369.png",link:"Something_else_here.html",title:"Something_else_here",text:"See More"}
+/*ProfolioDB.insert([
+     {modal:"card1",imgSrc:"/picture/s1411122027材質.png",link:"/3D_design.html",title:"3D design",text:"See More"},
+     {modal:"card2",imgSrc:"/picture/達悟族.png",link:"/graphic_design.html",title:"graphic design",text:"See More"},
+     {modal:"card3",imgSrc:"/picture/S__9060369.png",link:"/Something_else_here.html",title:"Something_else_here",text:"See More"}
  ])*/
 
 /*server.get("/services", (req, res)=>{
@@ -53,6 +53,6 @@ server.listen(2170, ()=>{
     console.log("Server is running at port 2170.");
 })
 server.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '/main.html'));
+    res.sendFile(path.join(__dirname, '/web/main.html'));
   });
   
