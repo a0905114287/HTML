@@ -80,10 +80,10 @@
 
   <div class="scroll-container">
 
-    <img id="gun" src="/picture/LOAD.jpg" alt="路">
-    <img class="part" id="part1" src="/picture/tree.png" alt="樹">
-    <img class="part" id="part2" src="/picture/taycan.png" alt="車">
-    <img class="part" id="part3" src="/picture/tree.png" alt="樹">
+    <img id="background" src="/picture/LOAD.jpg" alt="路">
+    <img class="part" id="tree1" src="/picture/tree.png" alt="樹">
+    <img class="part" id="car" src="/picture/taycan.png" alt="車">
+    <img class="part" id="tree2" src="/picture/tree.png" alt="樹">
   </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
@@ -96,12 +96,12 @@
     }
 
     .scroll-container {
-      height: 400vh;
+      height: 400vh; /*距離調整*/
       /* 模擬滾動區域 */
       position: relative;
     }
 
-    #gun {
+    #background {
       position: fixed;
       top: 20%;
       left: 50%;
@@ -120,43 +120,44 @@
       /* 初始顯示 */
     }
 
-    #part1 {
+    #tree1 {
       top: -5%;
       /* 初始位置示例 */
       left: 5%;
       scale: 0.9;
     }
 
-    #part2 {
+    #car {
       top: 10%;
       left: 40%;
       scale: 0.1;
     }
 
-    #part3 {
+    #tree2 {
       top: -5%;
       left: 95%;
       scale: 0.9;
     }
 
-    /* 其他零件依此類推，調整不同的位置 */
+    /*依此類推，調整不同的位置 */
   </style>
   <script>
     // 啟用 GSAP 和 ScrollTrigger
     gsap.registerPlugin(ScrollTrigger);
 
     // 定義各零件的動畫
-    gsap.to("#part1", {
+    gsap.to("#tree1", {
       scrollTrigger: {
         trigger: ".scroll-container",
         start: "top center", // 滾動開始
         end: "bottom center", // 滾動結束
         scrub: true, // 滾動連接動畫
+       
       },
-      opacity: 0, // 逐漸顯示
+      opacity: 0, // 逐漸隱藏
     });
 
-    gsap.to("#part2", {
+    gsap.to("#car", {
       scrollTrigger: {
         trigger: ".scroll-container",
         start: "top center",
@@ -167,17 +168,17 @@
       opacity: 0,
     });
 
-    gsap.to("#part3", {
+    gsap.to("#tree2", {
       scrollTrigger: {
         trigger: ".scroll-container",
         start: "top center",
         end: "bottom center",
         scrub: true,
       },
-      // 零件移動到右側
+     
       opacity: 0,
     });
-    gsap.to("#gun", {
+    gsap.to("#background", {
       scrollTrigger: {
         trigger: ".scroll-container",
         start: "top center",
@@ -186,7 +187,7 @@
       },
       opacity: 0,
     });
-    // 你可以根據零件數量，複製這段程式碼並修改目標位置。
+  
 
   </script>
 
@@ -227,7 +228,7 @@
       <div class="card-group">
         <div class="col" v-for="part in parts" :key="part.title">
           <div class="card">
-            <img :src="part.imgSrc" alt="Card img" class="card-img-top">
+            <img :src="part.imgSrc" alt="img" class="card-img-top">
             <div class="card-body">
               <h5 class="card-title">{{ part.title }}</h5>
               <a :href="part.link" class="card-link">

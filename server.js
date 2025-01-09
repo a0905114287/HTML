@@ -15,7 +15,6 @@ server.use(fileUpload({defCharset:'utf8', defParamCharset:'utf8'}));
 
 const DB = require("nedb-promises");
 const ProfolioDB = DB.create(__dirname+"/profolio.db");
-const ContactDB = DB.create(__dirname+"/contact.db");
  
 
 /*ProfolioDB.insert([
@@ -42,11 +41,6 @@ server.get("/profolio", (req,res)=>{
             res.send("Error!");
         }
       })
-})
-
-server.post("/contact_me", (req,res)=>{
-     ContactDB.insert(req.body);
-     res.redirect("/#contact");
 })
 
 server.listen(2170, ()=>{
